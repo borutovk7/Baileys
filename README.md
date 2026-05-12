@@ -141,6 +141,7 @@ This fork designed for production use with a focus on clarity and safety:
    - [🛒 Business Management](#-business-management)
    - [🔐 Privacy Management](#-privacy-management)
    - [📡 Events](#-events)
+- [🎨 Custom Logs](#-custom-logs)
 - [🚀 Try the Bot](#-try-the-bot)
 - [📦 Fork Base](#-fork-base)
 - [📣 Credits](#-credits)
@@ -175,7 +176,7 @@ npm i github:borutovk7/baileys-boruto-vk7
 
 ```javascript
 // --- ESM
-import { makeWASocket } from '@boruto_vk7/baileys'
+import { makeWASocket, connectLog, successLog, errorLog } from '@boruto_vk7/baileys'
 
 // --- CJS (tested and working on Node.js 24 ✅)
 const { makeWASocket } = require('@boruto_vk7/baileys')
@@ -1972,6 +1973,25 @@ sock.ev.on('newsletter-settings.update', (update) => {})
 sock.ev.on('settings.update', (update) => {})
 ```
 
+### 🎨 Custom Logs
+
+This fork includes a built-in logging system with colors for better debugging and connection monitoring.
+
+```javascript
+import { 
+  sayLog, inputLog, infoLog, successLog, errorLog, 
+  warningLog, debugLog, commandLog, connectLog, 
+  disconnectLog, loadLog, unloadLog, apiLog, 
+  dbLog, eventLog, scraperLog, cacheLog, 
+  authLog, rateLimitLog, startLog, shutdownLog 
+} from '@boruto_vk7/baileys'
+
+// Example usage:
+connectLog('Connecting to WhatsApp...')
+successLog('Connected successfully!')
+errorLog('Failed to send message.')
+```
+
 ### 🚀 Try the Bot
 
 A fast, lightweight, and modular WhatsApp bot built with [@boruto_vk7/baileys](https://www.npmjs.com/package/@boruto_vk7/baileys).
@@ -1989,7 +2009,9 @@ Full credit is attributed to the original maintainers and contributors of Bailey
 - [purpshell](https://github.com/purpshell)
 - [jlucaso1](https://github.com/jlucaso1)
 - [adiwajshing](https://github.com/adiwajshing)
-This fork includes additional enhancements and modifications by Eduh Dev (https://github.com/borutovk7)
+This fork includes additional enhancements and modifications by:
+- [Eduh Dev](https://github.com/borutovk7)
+- [Lia Wynn](https://github.com/boruto_vk7)
 
 Special thanks to [itsreimau](https://github.com/itsreimau) for the fix to the `updateBlockStatus` implementation.
 
