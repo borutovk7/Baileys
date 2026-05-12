@@ -13,7 +13,7 @@
    },
    "repository": {
       "type": "git",
-      "url": "git+https://github.com/boruto_vk7/baileys.git"
+      "url": "git+https://github.com/borutovk7/baileys-boruto-vk7.git"
    },
    "files": [
       "lib/**/*",
@@ -35,8 +35,8 @@
       "whatsapp-group",
       "whatsapp-web"
    ],
-   "homepage": "https://github.com/boruto_vk7/baileys#readme",
-   "author": "Lia Wynn",
+   "homepage": "https://github.com/borutovk7/baileys-boruto-vk7#readme",
+   "author": "Eduh Dev",
    "license": "MIT",
    "dependencies": {
       "@adiwajshing/keyed-db": "^0.2.4",

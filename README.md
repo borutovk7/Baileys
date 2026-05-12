@@ -25,7 +25,7 @@
    </a>
 </p>
 
-☕ For donation: [Saweria](https://saweria.co/boruto_vk7)
+
 
 ### ✨ Highlights
 
@@ -1989,8 +1989,7 @@ Full credit is attributed to the original maintainers and contributors of Bailey
 - [purpshell](https://github.com/purpshell)
 - [jlucaso1](https://github.com/jlucaso1)
 - [adiwajshing](https://github.com/adiwajshing)
-
-This fork includes additional enhancements and modifications by Eduh Dev(https://github.com/boruto_vk7)
+This fork includes additional enhancements and modifications by Eduh Dev (https://github.com/borutovk7)
 
 Special thanks to [itsreimau](https://github.com/itsreimau) for the fix to the `updateBlockStatus` implementation.
 
