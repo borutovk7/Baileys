@@ -11,7 +11,7 @@
    <a href="https://www.npmjs.com/package/@boruto_vk7/baileys">
       <img src="https://img.shields.io/npm/dm/@boruto_vk7/baileys?style=for-the-badge&logo=npm"/>
    </a>
-   <a href="https://github.com/boruto_vk7/baileys">
+   <a href="https://github.com/borutovk7/baileys-boruto-vk7">
       <img src="https://img.shields.io/github/stars/boruto_vk7/baileys?style=for-the-badge&logo=github"/>
    </a>
    <a href="LICENSE">
@@ -157,7 +157,7 @@ This fork designed for production use with a focus on clarity and safety:
 
 # GitHub
 "dependencies": {
-   "@boruto_vk7/baileys": "github:boruto_vk7/baileys"
+   "@boruto_vk7/baileys": "github:borutovk7/baileys-boruto-vk7"
 }
 ```
 
@@ -168,7 +168,7 @@ This fork designed for production use with a focus on clarity and safety:
 npm i @boruto_vk7/baileys@latest
 
 # GitHub
-npm i github:boruto_vk7/baileys
+npm i github:borutovk7/baileys-boruto-vk7
 ```
 
 #### 🧩 Import (ESM & CJS)
