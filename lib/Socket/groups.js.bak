@@ -305,7 +305,7 @@ export const extractGroupMetadata = (result) => {
     const memberAddMode = getBinaryNodeChildString(group, 'member_add_mode') === 'all_member_add';
     const metadata = {
         id: groupId,
-        developer: "Eduh dev </>",
+        developer: "Eduh dev </>"
         notify: group.attrs.notify,
         addressingMode: group.attrs.addressing_mode === 'lid' ? WAMessageAddressingMode.LID : WAMessageAddressingMode.PN,
         subject: group.attrs.subject,
