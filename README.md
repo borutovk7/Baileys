@@ -1,6 +1,6 @@
 # 🌱 @boruto_vk7/baileys
 
-[![Logo](https://files.catbox.moe/c5s9g0.jpg)](https://www.npmjs.com/package/@boruto_vk7/baileys)
+[![Logo]https://res.cloudinary.com/dlmoujcpv/image/upload/v1778490586/trindade-1778490585498.jpg)](https://www.npmjs.com/package/@boruto_vk7/baileys)
 
 <p align="center">
    Enhanced Baileys v7 with fixes for newsletter media uploads, plus support for interactive messages, albums, and additional message types.
@@ -47,6 +47,7 @@ This fork designed for production use with a focus on clarity and safety:
 - [🧩 Additional Message Options](#-additional-message-options)
 - [📥 Installation](#-installation)
    - [🧩 Import (ESM & CJS)](#-import-esm--cjs)
+- [🪵 Custom Log Helpers](#-custom-log-helpers)
 - [🌐 Connect to WhatsApp (Quick Step)](#-connect-to-whatsapp-quick-step)
    - [🔐 Auth State](#-auth-state)
 - [🗄️ Implementing Data Store](#%EF%B8%8F-implementing-data-store)
@@ -161,6 +162,7 @@ This fork designed for production use with a focus on clarity and safety:
 - 📁 Reintroduced [`makeInMemoryStore`](#%EF%B8%8F-implementing-data-store) with a minimal ESM adaptation and small adjustments for Baileys v7.
 - 📦 Switched FFmpeg execution from `exec` to `spawn` for safer process handling.
 - 🗃️ Added [`@napi-rs/image`](https://www.npmjs.com/package/@napi-rs/image) as a supported image processing backend in [`getImageProcessingLibrary()`](#%EF%B8%8F-image-processing), offering a balance between performance and compatibility.
+- 🪵 Added a set of pre-styled console [Log Helpers](#-custom-log-helpers) (`startLog`, `errorLog`, `apiLog`, etc.) exported directly from the package for quick, readable bot logging.
 
 ### 📨 Messages Handling & Compatibility
 - 📩 Expanded messages support for:
@@ -221,6 +223,77 @@ import { makeWASocket } from '@boruto_vk7/baileys'
 // --- CJS (tested and working on Node.js 24 ✅)
 const { makeWASocket } = require('@boruto_vk7/baileys')
 ```
+
+### 🪵 Custom Log Helpers
+
+Besides the standard `pino` logger passed to `makeWASocket` (see [🔐 Auth State](#-auth-state)), this fork also ships a set of pre-styled console loggers you can import and use anywhere in your own bot code — no extra setup required.
+
+```javascript
+import {
+   sayLog,
+   inputLog,
+   infoLog,
+   successLog,
+   errorLog,
+   warningLog,
+   debugLog,
+   commandLog,
+   connectLog,
+   disconnectLog,
+   loadLog,
+   unloadLog,
+   apiLog,
+   dbLog,
+   eventLog,
+   scraperLog,
+   cacheLog,
+   authLog,
+   rateLimitLog,
+   startLog,
+   shutdownLog
+} from '@boruto_vk7/baileys'
+
+startLog('Bot iniciando...')
+connectLog('Conectado ao WhatsApp com sucesso')
+inputLog('Comando recebido: !ping')
+commandLog('Executando comando "ping"')
+sayLog('Enviando resposta ao usuário')
+successLog('Mensagem enviada com sucesso')
+infoLog('Sessão ativa detectada')
+warningLog('Rate limit próximo do limite')
+rateLimitLog('Aguardando 2s antes da próxima requisição')
+errorLog('Falha ao enviar mensagem: ' + err.message)
+debugLog('Payload recebido: ' + JSON.stringify(payload))
+dbLog('Usuário salvo no banco de dados')
+cacheLog('Cache de mídia atualizado')
+apiLog('Requisição enviada para a Okarun API')
+eventLog('Evento "messages.upsert" disparado')
+scraperLog('Extraindo dados da página...')
+authLog('Sessão de autenticação carregada')
+loadLog('Plugin "economia" carregado')
+unloadLog('Plugin "economia" descarregado')
+disconnectLog('Conexão encerrada, tentando reconectar...')
+shutdownLog('Bot finalizado')
+```
+
+| Function | Purpose |
+|---|---|
+| `startLog` / `shutdownLog` | Bot/app startup and shutdown |
+| `connectLog` / `disconnectLog` | Connection lifecycle |
+| `inputLog` / `commandLog` | Incoming input & command execution |
+| `sayLog` | Outgoing bot replies |
+| `successLog` / `errorLog` / `warningLog` / `infoLog` | Result-style messages |
+| `debugLog` | Verbose debug output |
+| `apiLog` | External API calls |
+| `dbLog` / `cacheLog` | Database & cache operations |
+| `eventLog` | Baileys event dispatch |
+| `scraperLog` | Scraper-related output |
+| `authLog` | Auth/session related output |
+| `rateLimitLog` | Rate limit warnings |
+| `loadLog` / `unloadLog` | Plugin/module load & unload |
+
+> [!NOTE]
+> These are `console.log` wrappers styled with [`colors`](https://www.npmjs.com/package/colors) — meant for quick, readable terminal output during development, not structured logging. For production-grade logging (log levels, JSON output, file transports), keep using the `pino` logger passed to `makeWASocket`.
 
 ### 🌐 Connect to WhatsApp (Quick Step)
 
