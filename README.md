@@ -25,7 +25,7 @@
    </a>
 </p>
 
-☕ For donation: [Saweria](https://saweria.co/borutovk7)
+
 
 ### ✨ Highlights
 
