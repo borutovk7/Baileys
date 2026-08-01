@@ -1,6 +1,6 @@
 {
    "name": "@boruto_vk7/baileys",
-   "version": "1.0.20-rc14-eduh.0",
+   "version": "1.0.24-rc14-eduh.0",
    "description": "Enhanced Baileys v7 with fixes for newsletter media uploads, plus support for interactive messages, albums, and additional message types.",
    "main": "lib/index.js",
    "types": "lib/index.d.ts",
