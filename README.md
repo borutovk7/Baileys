@@ -34,40 +34,6 @@ This fork designed for production use with a focus on clarity and safety:
 - 🚫 No obfuscation. Easy to read and audit.
 - 🚫 No auto-follow channel (newsletter) behavior.
 
-> [!IMPORTANT]
-> Hi everyone,
->
-> I want to clarify two separate attribution issues regarding packages derived from this fork.
->
-> 1. Direct redistribution of my modifications without attribution
->
-> The following packages are operated by the same individual under multiple npm accounts:
->
-> - [@nuisockets](https://www.npmjs.com/package/@nuisockets/baileys)
-> - [@nuiisatoru](https://www.npmjs.com/package/@nuiisatoru/baileys)
-> - [@nuiisweetberry](https://www.npmjs.com/package/@nuiisweetberry/baileys)
-> - [@nuiisweety](https://www.npmjs.com/package/@nuiisweety/baileys)
->
-> These packages redistribute files and modifications originating from this fork while removing contributor credits and modification notes.
->
-> 2. Rebranded republishes of this fork
->
-> - [@lumina-md](https://www.npmjs.com/package/@lumina-md/baileys)
-> - [@sairidev](https://www.npmjs.com/package/@sairidev/baileys-new)
-> - [@lordmega/baileys](https://www.npmjs.com/package/@lordmega/baileys)
-> - [phantom-baileys](https://www.npmjs.com/package/phantom-baileys)
-> - [nexora-baileys](https://www.npmjs.com/package/nexora-baileys)
->
-> These packages primarily repackage or republish this fork under different names while failing to preserve proper attribution, credits, or modification notes.
-> 
-> To be clear, I am **NOT** the original maintainer of Baileys. Full credit and respect belong to:
->
-> https://github.com/WhiskeySockets/Baileys
->
-> **Forking is completely acceptable. Removing attribution, contributor credits, or modification history is not.**
->
-> Please report if necessary.
->
 > Thank you. 🤍
 
 > [!NOTE]
@@ -153,6 +119,39 @@ This fork designed for production use with a focus on clarity and safety:
 - [🚀 Try the Bot](#-try-the-bot)
 - [📦 Fork Base](#-fork-base)
 - [📣 Credits](#-credits)
+
+### 🆕 Sistema de Versão Inteligente (Novo!)
+
+A partir desta versão, `@boruto_vk7/baileys` possui um sistema inteligente de gerenciamento de versão do WhatsApp Web com **vida útil de 12 horas**.
+
+#### Por que isso é importante?
+
+- Evita que a versão mude constantemente sem necessidade
+- Maior estabilidade da conexão
+- Menos requisições desnecessárias
+
+#### Como usar
+
+```js
+import { 
+    getWhatsAppVersion, 
+    shouldRefreshVersion,
+    fetchLatestBaileysVersion 
+} from '@boruto_vk7/baileys';
+
+// Uso recomendado (respeita cache de 12h)
+const { version } = await getWhatsAppVersion();
+
+// Forçar atualização
+const result = await getWhatsAppVersion({ force: true });
+
+// Detectar se precisa atualizar versão após erro
+if (shouldRefreshVersion(error)) {
+    await fetchLatestBaileysVersion({ force: true });
+}
+```
+
+**Documentação completa:** Veja o arquivo `VERSION_FEATURE.md`
 
 ### 🛠️ Internal Adjustments
 - 🖼️ Fixed an issue where media could not be sent to newsletters due to an upstream issue.
