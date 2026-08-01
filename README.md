@@ -31,6 +31,41 @@
 
 This fork designed for production use with a focus on clarity and safety:
 
+### 🆕 Intelligent Version System (New!)
+
+This fork includes an intelligent WhatsApp Web version management system with a **12-hour cache (TTL)**.
+
+#### Why this matters
+
+- Prevents unnecessary version changes
+- Greater connection stability
+- Fewer unnecessary requests
+
+#### How to use
+
+```js
+import { 
+    getWhatsAppVersion, 
+    shouldRefreshVersion,
+    fetchLatestBaileysVersion 
+} from '@boruto_vk7/baileys';
+
+// Recommended usage (respects 12h cache)
+const { version } = await getWhatsAppVersion();
+
+// Force refresh
+const result = await getWhatsAppVersion({ force: true });
+
+// Detect if version needs refresh after error
+if (shouldRefreshVersion(error)) {
+    await fetchLatestBaileysVersion({ force: true });
+}
+```
+
+**Full documentation:** See `VERSION_FEATURE.md` file
+
+### 🛠️ Internal Adjustments
+
 - 🚫 No obfuscation. Easy to read and audit.
 - 🚫 No auto-follow channel (newsletter) behavior.
 
